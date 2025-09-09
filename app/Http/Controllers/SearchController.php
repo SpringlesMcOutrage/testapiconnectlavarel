@@ -8,9 +8,16 @@ use RestClientException;
 
 class SearchController extends Controller
 {
-    private $login = 'springlesmcoutrage@gmail.com';
-    private $password = 'e5082ec5171194e5';
+    private $login;
+    private $password;
+
     private $api_url = 'https://api.dataforseo.com/';
+
+    public function __construct()
+    {
+        $this->login = env('DATAFORSEO_LOGIN');
+        $this->password = env('DATAFORSEO_PASSWORD');
+    }
 
     public function index()
     {
